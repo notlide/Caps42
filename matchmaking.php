@@ -1,4 +1,6 @@
-<?php include "db.php" ?>
+<?php
+include "db.php";
+?>
 <html>
 <head>
     <title>Matchmaking</title>
@@ -7,22 +9,25 @@
 
 <h1>Matchmaking</h1>
 
-
 <?php
-/* $query = "SELECT tags FROM trainee";
+
+$traineeId = 3333;
+
+$query = "SELECT tags FROM trainee WHERE trainee_id = $traineeId";
 $showQuery = mysqli_query($connection, $query);
-while($row = mysqli_fetch_assoc($showQuery)){
-	$traineeTags1 = $row['tags'];
-	
-} */
-$traineeTags = "boxing";
+
+if ($row = mysqli_fetch_assoc($showQuery)) {
+    $traineeTags = $row['tags'];
+} else {
+    $traineeTags = "No tags found";
+}
 ?>
 
 <h2>Your Tags: <?php echo $traineeTags; ?></h2>
 
 <!-- Add a form to initiate matchmaking -->
 <form action="matchmaking_result.php" method="post">
-    <input type="hidden" name="trainee_tags" value="<?php echo $traineeTags; ?>">
+    <input type="hidden" name="trainee_id" value="<?php echo $traineeId; ?>">
     <button type="submit">Find Trainer</button>
 </form>
 <p><a href="traineeMatch.php">Back to Trainee Dashboard</a></p>
