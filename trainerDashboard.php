@@ -1,9 +1,8 @@
 <?php
 include "db.php";
 
+$trainerId = 1116;
 
-$trainerId = 1222;
-// Assuming $trainerId is available, retrieve requests for this trainer
 $requestsQuery = "SELECT requests.*, trainee.trainee_fname, trainee.trainee_lname
                   FROM requests
                   INNER JOIN trainee ON requests.trainee_id = trainee.trainee_id
