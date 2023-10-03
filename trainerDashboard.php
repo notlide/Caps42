@@ -1,7 +1,7 @@
 <?php
 include "db.php";
 
-$trainerId = 1116;
+$trainerId = 1234;
 
 $requestsQuery = "SELECT requests.*, trainee.trainee_fname, trainee.trainee_lname
                   FROM requests
